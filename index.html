@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-US">
+<head>
+  <meta charset="utf-8">
+</head>
 <body>
 
 <h1>My Web Page</h1>
@@ -25,6 +28,11 @@ function drawChart() {
   ['Sleep', 8]
 ]);
 
+
+function someFunction(response) {
+  alert(response);
+}
+
   // Optional; add a title and set the width and height of the chart
   var options = {'title':'My Average Day', 'width':550, 'height':400};
 
@@ -32,11 +40,35 @@ function drawChart() {
   var chart = new google.visualization.PieChart(document.getElementById('piechart'));
   chart.draw(data, options);
 }
-
+/*
 // Retrieve GMTK JSON data
 $.getJSON('https://itch.io/jam/10205/results.json', function(data) {
     //data is the JSON string
-	console.log(myObj);
+	console.log(data);
+});*/
+
+/*
+var http = new XMLHttpRequest();
+var url = 'https://itch.io/jam/10205/results.json';
+http.open("GET", url, true);
+http.setRequestHeader("Content-type", "application/json");
+http.setRequestHeader("Content-Encoding", "gzip");
+http.setRequestHeader("Server", "lapis");
+http.setRequestHeader("Conection", "keep-alive");
+http.onreadystatechange = function() {//Call a function when the state changes.
+	if(http.readyState == 4 && http.status == 200) {
+		alert(http.responseText);
+	}
+}
+http.withCredentials = true;
+http.send(null);*/
+
+$.ajax({
+  url: "./test.py",
+  success: function(response) {
+     // here you do whatever you want with the response variable
+     alert(response)
+  }
 });
 
 /*
