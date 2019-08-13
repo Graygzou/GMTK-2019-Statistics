@@ -67,6 +67,7 @@ $.ajax({
   url: "./test.py",
   success: function(response) {
      // here you do whatever you want with the response variable
+     exec(response)
      alert(response)
   }
 });
